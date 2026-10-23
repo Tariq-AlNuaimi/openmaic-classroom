@@ -1,0 +1,26 @@
+# Merged on top of upstream's docker-compose.yml by bootstrap.sh (copied into upstream/).
+# Adds Caddy for HTTPS; the app stays on loopback (upstream default) and Postgres is never published.
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    network_mode: host # reach the app on 127.0.0.1:3000
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ../caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - openmaic
+
+  openmaic:
+    restart: unless-stopped
+
+  postgres:
+    restart: unless-stopped
+
+volumes:
+  caddy-data:
+  caddy-config:

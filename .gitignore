@@ -1,0 +1,4 @@
+.env
+openmaic.env
+upstream/
+backups/
