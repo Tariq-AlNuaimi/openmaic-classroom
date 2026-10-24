@@ -2,7 +2,7 @@
 # Adds Caddy for HTTPS; the app stays on loopback (upstream default) and Postgres is never published.
 services:
   caddy:
-    image: caddy:2.10-alpine
+    image: mirror.gcr.io/library/caddy:2.10-alpine # Docker Hub mirror: no pull rate limit
     restart: unless-stopped
     network_mode: host # reach the app on 127.0.0.1:3000
     environment:
