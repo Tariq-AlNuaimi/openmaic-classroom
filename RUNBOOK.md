@@ -11,7 +11,9 @@
 
 ## 2. Credentials (one time)
 
-- **OpenRouter:** https://openrouter.ai/keys → new key **with a credit limit** → `openmaic.env`.
+- **OpenRouter:** https://openrouter.ai/keys → new key **with a credit limit** → add it in the app's
+  **Settings → providers** (stored encrypted server-side with `OPENMAIC_SECRET_KEY`). Setting
+  `OPENROUTER_API_KEY` in `openmaic.env` also works and pins it for every user.
 - **ACCESS_CODE:** `openssl rand -base64 18` → `openmaic.env`. Share it only with people who should
   generate lessons on your credit.
 - **Postgres password:** `openssl rand -hex 24` → `.env`.

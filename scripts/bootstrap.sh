@@ -10,7 +10,7 @@ set -a; source .env; set +a
 
 require() { grep -Eq "^$1=.+" "$2" || { echo "refusing to start: $1 is empty in $2"; exit 1; }; }
 require ACCESS_CODE openmaic.env
-grep -Eq "^OPENROUTER_API_KEY=.+" openmaic.env || echo "WARNING: OPENROUTER_API_KEY empty: site runs but cannot generate lessons until you set it and re-run bootstrap.sh"
+grep -Eq "^OPENROUTER_API_KEY=.+" openmaic.env || echo "WARNING: OPENROUTER_API_KEY empty: add the key in the app (Settings -> providers) or set it here and re-run bootstrap.sh"
 [[ -n "${PERSISTENCE_POSTGRES_PASSWORD:-}" ]] || { echo "refusing to start: PERSISTENCE_POSTGRES_PASSWORD is empty"; exit 1; }
 [[ -n "${DOMAIN:-}" ]] || { echo "refusing to start: DOMAIN is empty"; exit 1; }
 

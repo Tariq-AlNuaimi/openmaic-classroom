@@ -24,7 +24,7 @@ openmaic-classroom/
 ```bash
 git clone git@github.com:Tariq-AlNuaimi/openmaic-classroom.git && cd openmaic-classroom
 cp .env.example .env               # set DOMAIN, PERSISTENCE_POSTGRES_PASSWORD
-cp openmaic.env.example openmaic.env  # set OPENROUTER_API_KEY, ACCESS_CODE
+cp openmaic.env.example openmaic.env  # set ACCESS_CODE (OpenRouter key: here or in Settings)
 ./scripts/bootstrap.sh
 ```
 
